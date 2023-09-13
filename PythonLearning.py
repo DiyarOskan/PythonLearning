@@ -802,13 +802,87 @@ url = input("enter url to generate qr code: ")
 qr_code = pyqrcode.create(url)
 qr_code.svg('qrcode.svg',scale= 5)
 """
-"silinmek üzere yazılmak"
 
+"""
+KARE ÇİZİM
 
+import turtle
 
+drawing_board = turtle.Screen()
+drawing_board.bgcolor("#FF5733")
+drawing_board.title("python turtle")
 
+turtle_instance = turtle.Turtle()
+for i in range(4):
+    turtle_instance.forward(100)
+    turtle_instance.left(90)
+turtle.done()
 
+YILDIZ ÇİZİM
+import turtle
 
+drawing_board = turtle.Screen()
+drawing_board.bgcolor("#FF5733")
+drawing_board.title("python turtle")
 
+turtle_instance = turtle.Turtle()
+for i in range(5):
+    turtle_instance.right(144)
+    turtle_instance.forward(100)
+turtle.done()
+
+POLYGON (ÇOK KENARLI) ÇİZİMİ
+
+import turtle
+
+drawing_board = turtle.Screen()
+drawing_board.bgcolor("#FF5733")
+drawing_board.title("python turtle")
+
+turtle_instance = turtle.Turtle()
+num_sides=8
+angle = 360.0/ num_sides
+side_length = 100
+for i in range(num_sides):
+    turtle_instance.right(angle)
+    turtle_instance.forward(side_length)
+turtle.done()
+
+KULLANICIYA TURTLE'I HAREKET ETTİRMEK
+
+import turtle
+
+drawing_board = turtle.Screen()
+drawing_board.bgcolor("light blue")
+drawing_board.title("turtle")
+
+turtle_instance = turtle.Turtle()
+
+def forward ():
+    turtle_instance.forward(10)
+def rotate_angle_left():
+    turtle_instance.left(10)
+def rotate_angle_right():
+    turtle_instance.right(10)
+def clear_screen():
+    turtle_instance.clear()
+def return_home():
+    turtle_instance.home()
+def pen_up():
+    turtle_instance.penup()
+def pen_down():
+    turtle_instance.pendown()
+drawing_board.listen()
+drawing_board.onkey(fun=forward,key="space")
+drawing_board.onkey(fun=rotate_angle_right,key="s")
+drawing_board.onkey(fun=rotate_angle_left,key="w")
+drawing_board.onkey(fun=clear_screen,key="c")
+drawing_board.onkey(fun=return_home,key="h")
+drawing_board.onkey(fun=pen_up,key="d")
+drawing_board.onkey(fun=pen_down,key="a")
+
+turtle.mainloop()
+
+"""
 
 
