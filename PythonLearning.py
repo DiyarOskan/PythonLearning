@@ -771,7 +771,7 @@ pytube.YouTube(url).streams.get_highest_resolution().download(path)
 
 from rembg import remove
 
-input_path = "python tavşanı.jpg"
+input_path = "python_fotoo.png"
 output_path = "output.png"
 
 with open(input_path,"rb") as i:
@@ -885,5 +885,5 @@ turtle.mainloop()
 
 """
 
-x = 120
-print(type(x))
+
+

@@ -180,7 +180,7 @@ def save_and_encrypt_notes():
     message = input_text.get("1.0",END)
     master_secret = master_secret_input.get()
 
-    if len(title) == 0 or len(message) == 0 or len(master_secret) == 0:
+    if title == "" or message == "" or master_secret == "":
             messagebox.showinfo(title="Error!", message="Please enter all information.")
     else:
         message_encrypted = encode(master_secret, message)
@@ -202,7 +202,7 @@ def decrypt_notes():
     message_encrypted = input_text.get("1.0", END)
     master_secret = master_secret_input.get()
 
-    if len(message_encrypted) == 0 or len(master_secret) == 0:
+    if message_encrypted == "" or master_secret == "":
         messagebox.showinfo(title="Error!", message="Please enter all information.")
     else:
         try:
