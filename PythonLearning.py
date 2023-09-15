@@ -885,4 +885,5 @@ turtle.mainloop()
 
 """
 
-
+x = 120
+print(type(x))
