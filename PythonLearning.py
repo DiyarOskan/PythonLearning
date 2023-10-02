@@ -885,5 +885,3 @@ turtle.mainloop()
 
 """
 
-
-
