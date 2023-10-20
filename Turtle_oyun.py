@@ -29,7 +29,7 @@ def setup_score_turtle():
     score_turtle.setpos(0,i)
     score_turtle.write(arg="Score:0",move=False,align="center",font=FONT)
 
-position_variable=10
+position_variable=50
 
 def make_turtle(x, y):
     t = turtle.Turtle()

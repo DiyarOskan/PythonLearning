@@ -1,4 +1,5 @@
 import random
+import tkinter
 
 import download as download
 import pip
@@ -804,6 +805,26 @@ qr_code.svg('qrcode.svg',scale= 5)
 """
 
 """
+********************************************** REMINDER FOR PC *********************************************************
+
+#import notification from plyer module
+from plyer import notification
+#import time
+import time
+
+#Use while loop to create notifications indefinetly
+while(True):
+    #notification
+    notification.notify(
+        title = "Reminder to take a break",
+        message = '''Drink water, take a walk''',
+        timeout = 10
+    )
+    #System pause the execution of this programm for 60 minutes
+    time.sleep(3600)
+"""
+
+"""
 KARE ÇİZİM
 
 import turtle
@@ -882,6 +903,219 @@ drawing_board.onkey(fun=pen_up,key="d")
 drawing_board.onkey(fun=pen_down,key="a")
 
 turtle.mainloop()
+
+"""
+
+
+class Team():
+
+    def __init__(self,points,averages,scored_goals):
+        self.points = points
+        self.averages = averages
+        self.scored_goals= scored_goals
+        print("infos are identified ")
+    def points_writer(self):
+        print(self.points)
+
+Beşiktaş = Team(100,89,44)
+
+print(Beşiktaş.averages)
+Beşiktaş.points_writer()
+
+class Dog():
+    year= 7
+
+    def __init__(self,age):
+        self.age = age
+        self.doghumanage= age * self.year
+    def dogs_age_related_to_human_age(self):
+        print(self.age*self.year)
+        # "self.year" yerine "Dog.year" da yazılabilir.
+
+my_dog = Dog(3)
+print(my_dog.age)
+print(my_dog.doghumanage)
+my_dog.dogs_age_related_to_human_age()
+
+
+class Musician():
+    def __init__(self,name):
+        self.name=name
+        print(("musician class"))
+    def test1(self):
+        print("test 1")
+    def test2(self):
+        print("test 2")
+
+class MusicianPlus(Musician):
+    def __init__(self,name):
+        Musician.__init__(self,name)
+        print("musicianplus")
+    def test1(self):
+        print("test1 test1 test1")
+
+    def test3(self):
+        print("test 3")
+
+ibrahim= Musician("ibrahim")
+print(type(ibrahim))
+ibrahim.test1()
+diyar= MusicianPlus("diyar")
+diyar.test1()
+diyar.test3()
+
+
+
+"""
+while 1==1: # 1==1 yerine "True"da yazabilirdik:
+    try  :
+        myAge = int(input("write your age please:"))
+        print(myAge*2)
+        break
+    except ValueError: #burada ValueError yazmayabilirdik de 
+        print("please write it as an integer")
+    finally: # bunun altına yazdığın her durumda çalışacak
+        print("finally")
+"""
+
+"""
+******************************************************* Tkinter *******************************************************
+from tkinter import *
+
+#window
+window = Tk()
+window.title("Tkinter")
+window.minsize(width=600,height=600)
+window.config(pady=20,padx=20)
+
+#label
+label=Label()
+label.config(text="The label",font=("Times New Roman",20,"bold"),padx=30,pady=30)
+label.pack()
+
+
+def Button_click():
+    print(text.get(1.0,END))
+#Button
+button=Button()
+button.config(text="The button",font=("Times New Roman",20,"bold"),command=Button_click)
+button.pack()
+
+#Entry
+entry=Entry()
+entry.config(width=20)
+entry.pack()
+
+#Text
+
+text=Text()
+text.config(width=30,height=5)
+text.pack()
+text.focus()
+
+def number_selected(value):
+    x=value
+    print(f"My age is:{x}")
+
+#Scale
+scale = Scale()
+scale.config(from_=0,to=50,command=number_selected)
+scale.pack()
+
+def spinbox_selcted():
+    print(spinbox.get())
+#Spinbox
+spinbox=Spinbox()
+spinbox.config(from_=0,to=50,command=spinbox_selcted)
+spinbox.pack()
+
+
+def checkbutton_selected():
+    print(check_state.get())
+#CheckButton
+checkbutton=Checkbutton()
+check_state=IntVar()
+checkbutton.config(text="check",variable=check_state,command=checkbutton_selected)
+checkbutton.pack()
+
+#Radiobutton
+def Radio_selected():
+    print(radio_checked_state.get())
+
+radio_checked_state = IntVar()
+radiobutton=Radiobutton(text="1.option",value=10,variable=radio_checked_state,command=Radio_selected)
+radiobutton_2=Radiobutton(text="2.option",value=20,variable=radio_checked_state,command=Radio_selected)
+radiobutton.pack()
+radiobutton_2.pack()
+
+#Listbox
+def listbox_selected(event):
+    print(listbox.get(listbox.curselection()))
+name_list=["Diyar","İbrahim","Oskan"]
+listbox=Listbox(height=len(name_list)+1)
+for i in range(len(name_list)):
+    listbox.insert(i,name_list[i])
+listbox.bind("<<ListboxSelect>>",listbox_selected)
+listbox.pack()
+
+
+window.mainloop()
+
+
+
+from tkinter import *
+
+window=Tk()
+window.title("BMI Calculation")
+window.minsize(width=300,height=300)
+window.config(padx=50,pady=50)
+
+#label1
+label1 = Label()
+label1.config(text="Enter your weight(kg)",pady=10)
+label1.pack()
+
+#entry1
+entry1 = Entry()
+entry1 .config(width=10)
+entry1.pack()
+entry1.focus()
+
+#label2
+label2=Label()
+label2.config(text="Enter your height(cm)",pady=10)
+label2.pack()
+
+#entry2
+entry2 = Entry()
+entry2 .config(width=10)
+entry2.pack()
+
+def BMI_calculater():
+    #kilo / (boy)^2
+
+    x = float(entry1.get())
+    y = float(entry2.get())
+    i = x/ (y/100)**2
+
+    if 0 < i <=18.5:
+        print("underweight")
+    elif 18.5 < i <= 24.5:
+        print("normal weight")
+    elif 24.5 < i <=29.9:
+        print("overweight")
+    elif 29.9 < i <= 39.9:
+        print("obesity")
+    elif i > 39.9:
+        print("extreme obesity")
+
+#button
+button=Button()
+button.config(text="calculate",width=10,command=BMI_calculater)
+button.place(x=60,y=125)
+
+
+mainloop()
 
 """
 
