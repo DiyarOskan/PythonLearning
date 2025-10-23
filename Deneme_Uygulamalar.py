@@ -1,5 +1,5 @@
 """ ********************************************** GIF OLUŞTURUCU    ***************************************************
-"""
+
 from PIL import Image, ImageDraw
 
 images = []
@@ -25,3 +25,4 @@ for i in range(0, max_radius, step):
 
 images[0].save('pillow_imagedraw.gif',
                save_all=True, append_images=images[1:], optimize=False, duration=40, loop=0)
+"""

@@ -966,6 +966,7 @@ diyar.test3()
 
 
 
+
 """
 while 1==1: # 1==1 yerine "True"da yazabilirdik:
     try  :

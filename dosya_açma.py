@@ -1,4 +1,14 @@
 """
+
+f=open("dosya2")
+print(f.read())
+f.seek(0) # cursor'ı bu şekilde başa almak lazım yoksa 2. denemede boşluk okur
+print(f.read())
+f.close()
+
+"""
+
+"""
 with open("dosya1","r") as f:
     icerik = f.read()
     print(icerik)
