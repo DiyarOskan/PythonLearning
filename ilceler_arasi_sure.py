@@ -3,7 +3,7 @@ from datetime import datetime
 import time
 import csv
 
-gmaps = googlemaps.Client(key='AIzaSyChvvOJO7XPpevVBLdpikWevUbhLA0wF3Q')
+gmaps = googlemaps.Client(key='your own google key')
 
 districts = [
     "Adalar", "Arnavutköy", "Ataşehir", "Avcılar", "Bağcılar", "Bahçelievler",
