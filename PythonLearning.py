@@ -823,13 +823,14 @@ while(True):
     #System pause the execution of this programm for 60 minutes
     time.sleep(3600)
 """
-
 """
+************************************************** TURTLE **************************************************************
+
 KARE ÇİZİM
 
 import turtle
 
-drawing_board = turtle.Screen()
+drawing_board= turtle.screen()
 drawing_board.bgcolor("#FF5733")
 drawing_board.title("python turtle")
 
@@ -1118,5 +1119,170 @@ button.place(x=60,y=125)
 
 mainloop()
 
+"""
+"""
+###################### şifreli mesaj #####################
+from tkinter import *
+from PIL import Image, ImageTk
+import base64
+import os
+from tkinter import messagebox
+
+window = Tk()
+window.title("Secret Notes")
+window.minsize(width=300, height=300)
+window.config(padx=50, pady=50)
+
+#logo
+image = Image.open("output.png")
+image = image.resize((70, 70))  # 40x40 piksel
+logo_image = ImageTk.PhotoImage(image)
+logo_label = Label(image=logo_image)
+logo_label.pack()
+
+
+# label1
+label1 = Label()
+label1.config(text="Enter your title", pady=10)
+label1.pack()
+
+# entry1
+entry1 = Entry()
+entry1.config(width=20)
+entry1.pack()
+entry1.focus()
+
+# label2
+label2 = Label()
+label2.config(text="Enter your secret", pady=10)
+label2.pack()
+
+# entry2
+entry2 = Text()
+entry2.config(width=20, height=10)
+entry2.pack()
+
+# label3
+label3 = Label()
+label3.config(text="Enter master key", pady=10)
+label3.pack()
+
+# entry3
+entry3 = Entry()
+entry3.config(width=20, show="*")  # Şifre gizlensin
+entry3.pack()
+
+
+def simple_encrypt_decrypt(text, key):
+    encrypted_text = ""
+    key_length = len(key)
+
+    for i, char in enumerate(text):
+        key_char = key[i % key_length]
+        encrypted_char = chr(ord(char) ^ ord(key_char))
+        encrypted_text += encrypted_char
+
+    # Base64 encoding ile güvenli metin
+    encrypted_bytes = encrypted_text.encode('latin-1')
+    base64_encoded = base64.b64encode(encrypted_bytes).decode('latin-1')
+    return base64_encoded
+
+
+def simple_decrypt_encrypted(encrypted_text, key):
+    try:
+        # Base64 decoding
+        encrypted_bytes = base64.b64decode(encrypted_text.encode('latin-1'))
+        encrypted_text_decoded = encrypted_bytes.decode('latin-1')
+
+        decrypted_text = ""
+        key_length = len(key)
+
+        for i, char in enumerate(encrypted_text_decoded):
+            key_char = key[i % key_length]
+            decrypted_char = chr(ord(char) ^ ord(key_char))
+            decrypted_text += decrypted_char
+
+        return decrypted_text
+    except Exception as e:
+        return None
+
+
+def save_and_encrypt():
+    title = entry1.get().strip()
+    secret = entry2.get("1.0", END).strip()
+    master_key = entry3.get().strip()
+
+    # Validasyon
+    if not title or not secret or not master_key:
+        messagebox.showwarning("Warning", "Please fill all fields!")
+        return
+
+    if len(master_key) < 4:
+        messagebox.showwarning("Warning", "Master key must be at least 4 characters!")
+        return
+
+    # Şifreleme
+    encrypted_secret = simple_encrypt_decrypt(secret, master_key)
+
+    # Dosyaya kaydet
+    try:
+        with open(f"{title}.txt", "w") as file:
+            file.write(encrypted_secret)
+
+        # Alanları temizle
+        entry1.delete(0, END)
+        entry2.delete("1.0", END)
+        entry3.delete(0, END)
+        entry1.focus()
+
+        messagebox.showinfo("Success", "Your secret has been encrypted and saved!")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Could not save file: {e}")
+
+
+def decrypt():
+    title = entry1.get().strip()
+    master_key = entry3.get().strip()
+
+    if not title or not master_key:
+        messagebox.showwarning("Warning", "Please enter title and master key!")
+        return
+
+    # Dosyayı oku
+    try:
+        with open(f"{title}.txt", "r") as file:
+            encrypted_secret = file.read().strip()
+
+        # Şifreyi çöz
+        decrypted_secret = simple_decrypt_encrypted(encrypted_secret, master_key)
+
+        if decrypted_secret is None:
+            messagebox.showerror("Error", "Failed to decrypt! Check your master key.")
+            return
+
+        # Çözülmüş metni göster
+        entry2.delete("1.0", END)
+        entry2.insert("1.0", decrypted_secret)
+
+        messagebox.showinfo("Success", "Secret decrypted successfully!")
+
+    except FileNotFoundError:
+        messagebox.showerror("Error", f"No file found with title: {title}")
+    except Exception as e:
+        messagebox.showerror("Error", f"Could not decrypt: {e}")
+
+
+# button1
+button1 = Button()
+button1.config(text="save & encrypt", command=save_and_encrypt)
+button1.pack(pady=5)
+
+# button2
+button2 = Button()
+button2.config(text="decrypt", command=decrypt)
+button2.pack()
+
+mainloop()
 """
 
