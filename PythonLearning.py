@@ -1,20 +1,30 @@
+# -*- coding: utf-8 -*-
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 import random
 import tkinter
-
 import download as download
+import numpy
 import pip
 import pytube as pytube
+import requests
+import time
+import asyncio
+import requests
+import aiohttp
+import threading
+import requests
+import json
 
+
+
+""""
 print("selam")
 
 print("merhaba \tyakın kampüs")
 
 print('Ali\'nin evi')
-
-print("""Ben
-Alt
-Alta 
-Yazabiliyorum""")
 
 print("benim adım {}, yaşım {}".format('diyar', 21))
 
@@ -327,7 +337,7 @@ car = {
 }
 car["color"] = "red"
 print(car)
-
+"""
 
 """
 sayı= int(input("Bir sayı giriniz:"))
@@ -409,7 +419,7 @@ for harf in metin:
         sözlük[harf] =1
 for harf,adet in sözlük.items():
     print(harf,adet)
-
+"""
 """
 def my_function():
     print(5)
@@ -417,11 +427,7 @@ my_function()
 
 
 def my_function():
-    """
-    bu fonksiyon 5 bastırıyor
-    """
     print(5)
-
 my_function()
 
 
@@ -480,7 +486,7 @@ def çift_sayıları_filtrele(x):
     return x if x%2==0 else None
 print(list(filter(çift_sayıları_filtrele,sayılar)))
 
-
+"""
 """x=input("bir sayı girin:")
 print(int(x))
 """
@@ -559,7 +565,7 @@ print(matrix)
 reduceColumn(matrix, 2)
 print(matrix)
 """
-
+""""
 from random import randint
 from random import shuffle
 print(randint(0,100))
@@ -603,7 +609,7 @@ def hello_name(name):
     print("hello")
     print(name)
 hello_name("ibrahim")
-
+"""
 """def toplama_işlemi(sayı1,sayı2):
     sayı3 = sayı1 + sayı2
     print(sayı3)
@@ -703,7 +709,7 @@ for i in listem:
 print(boş_listem)
 
 """
-
+"""
 myList = [2,3,4,5,6]
 
 boş_liste=[]
@@ -728,7 +734,7 @@ def filtreleme(list):
             print(i)
 
 filtreleme(barkodDizisi)
-
+"""
 """while True:
     try:
         myAge= int(input("enter age:")) * 2
@@ -755,9 +761,9 @@ with open("dosya1",) as iç_dosya:
 
 """from animalPackage.catPackage import meow"""
 
+# ********************************************* YOUTUBE VİDEO İNDİRİCİ *************************************************
 
 """
-********************************************** YOUTUBE VİDEO İNDİRİCİ***************************************************
 import pytube
 from pytube import YouTube
 
@@ -767,9 +773,10 @@ path = ""
 
 pytube.YouTube(url).streams.get_highest_resolution().download(path)
 """
-"""
-*********************************************** FOTO ARKA PLAN TEMİZLEYİCİ *********************************************
 
+# ********************************************** FOTO ARKA PLAN TEMİZLEYİCİ *******************************************
+
+"""
 from rembg import remove
 
 input_path = "python_fotoo.png"
@@ -781,9 +788,11 @@ with open(input_path,"rb") as i:
         output_file= remove(input_file)
         o.write(output_file)
 """
+
+# *************************************** PDF ÇEVİRİCİ ****************************************************************
+
 """
-**************************************** PDF ÇEVİRİCİ ******************************************************************
- from pdf2docx import Converter
+from pdf2docx import Converter
 
 pdf_file = "sample.pdf"
 docx_file = "sample.docx"
@@ -794,8 +803,9 @@ cv.close()
 """
 
 
+# *********************************************  QR KOD OLUŞTURUCU*****************************************************
+
 """
-**********************************************  QR KOD OLUŞTURUCU*******************************************************
 import pyqrcode
 
 url = input("enter url to generate qr code: ")
@@ -804,9 +814,10 @@ qr_code = pyqrcode.create(url)
 qr_code.svg('qrcode.svg',scale= 5)
 """
 
-"""
-********************************************** REMINDER FOR PC *********************************************************
 
+# ********************************************* REMINDER FOR PC *******************************************************
+
+"""
 #import notification from plyer module
 from plyer import notification
 #import time
@@ -823,9 +834,10 @@ while(True):
     #System pause the execution of this programm for 60 minutes
     time.sleep(3600)
 """
-"""
-************************************************** TURTLE **************************************************************
 
+# ************************************************* TURTLE *************************************************************
+
+"""
 KARE ÇİZİM
 
 import turtle
@@ -906,7 +918,7 @@ drawing_board.onkey(fun=pen_down,key="a")
 turtle.mainloop()
 
 """
-
+""""
 
 class Team():
 
@@ -965,7 +977,7 @@ diyar= MusicianPlus("diyar")
 diyar.test1()
 diyar.test3()
 
-
+"""
 
 
 """
@@ -980,8 +992,11 @@ while 1==1: # 1==1 yerine "True"da yazabilirdik:
         print("finally")
 """
 
+
+# ****************************************************** Tkinter *******************************************************
+
+
 """
-******************************************************* Tkinter *******************************************************
 from tkinter import *
 
 #window
@@ -1286,3 +1301,761 @@ button2.pack()
 mainloop()
 """
 
+# --------------------------------------------------NUMPY----------------------------------------------------------------
+
+"""
+import numpy as np
+
+my_list = [10,20,30,40,50,60,70,80,90,100]
+print(type(my_list))
+my_numpy_list = numpy.array(my_list)
+print(type(my_numpy_list))
+print(my_numpy_list[0])
+print(my_numpy_list.max())
+matrix_list=[[1,0,0],[0,1,0],[0,0,1],[0,0,0]]
+print(matrix_list[0])
+numpy_matrix_list = numpy.array(matrix_list)
+print(numpy_matrix_list)
+print(numpy_matrix_list.shape)
+print(np.zeros(10))
+#10 adet 0 lık bir liste
+print(np.ones(10))
+#0lardan oluşan 10a10luk matris
+print(np.zeros((10,10)))
+#0dan 10a kadar
+print(np.arange(0,10))
+#0 ile 10 arasında eş mesafeli 9 sayı
+print(np.linspace(0,10,9))
+#bir ile 100 arasında 10 tane rastgele integer
+print(np.random.randint(1,100,10))
+#listenin belli bir kısmıdaki sayıları değiştirme işlemi. Bu normal listede olmaz np.list'de olur.Ek olarak bir listenin
+belli bir kısmını kesip o kısmı başka bir listeye eşitlersek ve bu yeni liste üzerinde işlem yaparsak, yaptığımız işlem 
+en baştaki büyük listeye de uygulanır. bunu engellemek için .copy kullanmak lazım
+my_numpy_list[0:2]=-10
+print(my_numpy_list)
+slice_list=my_numpy_list[1:3]
+slice_list[:]=0
+print(slice_list)
+print(my_numpy_list)
+numpy_list_copy=my_numpy_list.copy()
+slice_list_copy=numpy_list_copy[7:9]
+slice_list_copy[:] = 1
+print(numpy_list_copy)
+print(my_numpy_list)
+#normal listelerde toplama işlemi yaparsak listeleri yan yana yazıyor ama np'de elemanları topluyor matris usulü
+array1=np.arange(1,10,)
+print(array1)
+print(array1+array1)
+"""
+# --------------------------------------------------PANDAS--------------------------------------------------------------
+"""
+# Seri haline getirmek
+my_dict = {"James": 50, "Lars": 60, "Kirk": 55, "Rob": 60}
+print(pd.Series(my_dict))
+
+numpy_array = np.arange(10, 50, 10)
+print(pd.Series(data=numpy_array))
+
+quiz_resluts1 = pd.Series(data=[70, 60, 100], index=["A", "B", "C"])
+quiz_resluts2 = pd.Series(data=[80, 70, 50], index=["A", "B", "C"])
+quiz_resluts3 = pd.Series(data=[40, 30, 40], index=["A", "D", "C"])
+print(quiz_resluts1+quiz_resluts2)
+print(quiz_resluts1+quiz_resluts3)
+
+# Data Frame Pandas
+my_data = np.array([[10, 20, 30], [20, np.nan, 40], [30, 40, 50], [40, 50, 60]])
+my_names = ["James", "Lars", "Kirk", "Rob"]
+my_salaries = ["Jan", "Feb", "Mar"]
+my_data_frame = pd.DataFrame(my_data, index=my_names, columns=my_salaries)
+print(my_data_frame)
+print(my_data_frame["Feb"].mean())
+# boş olan değerlere "20" yazdır
+print(my_data_frame.fillna(20))
+# satır döndürmek için .loc gerek
+print(my_data_frame.loc["Lars"])
+# yeni sütun eklemek
+my_data_frame["Apr"] = my_data_frame["Mar"] * 2
+print(my_data_frame)
+# sütun düşürmek için axis=1
+print(my_data_frame.drop("Apr", axis=1))
+# satır düşürmek için axis=0
+print(my_data_frame.drop("Rob", axis=0))
+# düşürme işlemini yeni frame'de yapar asıl frame'i etkilemez. Orjinali değiştirmek için inplace=True eklemelisin
+print(my_data_frame)
+# 30'dan büyük olanları göster
+print(my_data_frame[my_data_frame > 30])
+
+# Gruplandırma
+salary_dict = {"Programing Language": ["Python", "Python", "Python", "Swift", "Swift", "R"],
+               "Name": ["A", "B", "C", "D", "E", "F"],
+               "Salary": [100, 90, 80, 70, 60, 50]}
+salary_frame = pd.DataFrame(salary_dict)
+print(salary_frame)
+group_object = salary_frame.groupby("Programing Language")
+print(group_object.count())
+print(group_object.mean("Salary"))
+
+# frame'leri alt alta birleştirmek için .concat kullan, eğer aynı isimde olan veriler var ise .merge kullan ve
+# on = "ortak isim" ekle.
+# frame'e bir fonksiyon uygulamak için .apply kullan, parantezin içine fonksiyonun adını yaz. ".apply(grossToNet)" gibi.
+
+dataFrame = pd.read_excel("C:/Users/ASUS/Desktop/python/P01-PythonBootcampNotebooks-main/27-SalarySheet.xlsx")
+print(dataFrame.describe())
+
+print(dataFrame["Salary"].mean())
+
+departman_grup = dataFrame.groupby("Department")
+print(departman_grup["Salary"].mean())
+
+title_grup = dataFrame.groupby("Title")
+print(title_grup.mean("Salary"))
+
+
+ortalama_maaslar_title = title_grup.mean("Salary")
+senior_maas = ortalama_maaslar_title.loc["Senior", "Salary"]
+junior_maas = ortalama_maaslar_title.loc["Junior", "Salary"]
+print(senior_maas)
+print(junior_maas)
+print(f"Senior - Junior'dan % {(senior_maas / junior_maas *100)-100} fazla kazanıyor")
+
+ortalama_maaslar_department = departman_grup.mean("Salary")
+soft_ware_maas = ortalama_maaslar_department.loc["Software Development", "Salary"]
+print(f"SoftWare - Junior Ortalama Maaş Farkları: {soft_ware_maas - junior_maas}")
+
+finance_cLevel = departman_grup.get_group("Finance").query('Title == "C-level"')
+ortalama_finance_cLevel = finance_cLevel["Salary"].mean()
+finance_midSenior = departman_grup.get_group("Finance").query('Title == "Mid-Senior"')
+ortalama_finance_midSenior = finance_midSenior["Salary"].mean()
+print(f"Finance departmanı C-level - Mid Senior ortalama maaş farkı: {ortalama_finance_cLevel - ortalama_finance_midSenior}")
+
+software_cLevel = departman_grup.get_group("Software Development").query('Title == "C-level"')
+toplam_software_cLevel = software_cLevel["Salary"].count()
+print(toplam_software_cLevel)
+marketing_cLevel = departman_grup.get_group("Marketing").query('Title == "C-level"')
+toplam_marketing_cLevel = marketing_cLevel["Salary"].count()
+print(toplam_marketing_cLevel)
+print(f"Software C-level eleman sayısı ile Marketing C-level farkı: {toplam_software_cLevel - toplam_marketing_cLevel}")
+"""
+
+# --------------------------------------------------MATPLOTLIB----------------------------------------------------------
+"""
+#basic grafik oluşturma
+age_list = [20,25,30,35,40,45,50]
+weight_list = [70,62,65,73,68,70,65]
+numpy_age = np.array(age_list)
+numpy_weight = np.array(weight_list)
+
+plt.plot(numpy_age,numpy_weight,"b*-")
+plt.plot(numpy_weight, numpy_age,"g--")
+
+plt.legend(["blue", "green"], loc="lower right")
+
+plt.show()
+
+
+plt.subplot(1, 2, 1)
+plt.plot(numpy_age, numpy_weight, "g*-") # renk + şekil şeklinde bu kısım, şekil olarak "-", "*", "+" koyabilirsin
+plt.title('Age vs Weight')
+plt.xlabel('Age')
+plt.ylabel('Weight')
+
+
+plt.subplot(1, 2, 2)
+plt.plot(numpy_weight, numpy_age, "r--")
+plt.title('Age vs Weight')
+plt.ylabel('Age')
+plt.xlabel('Weight')
+
+
+
+#manuel grafik konumlandırma
+my_figure = plt.figure()
+
+my_axes= my_figure.add_axes([0.1, 0.1, 0.9, 0.9]) # ilk iki sayı grafiğin konumunu, son iki sayı grafiğin boyutunu belirler
+my_axes.plot(numpy_weight, numpy_age, "r*-")
+my_axes.set_title("large graph")
+my_axes.set_xlabel("X data")
+my_axes.set_ylabel("Y data")
+
+
+my_axes2= my_figure.add_axes([0.2, 0.6, 0.2, 0.2])
+my_axes2.plot(numpy_age, numpy_weight, "r--")
+my_axes2.set_title("small graph")
+my_axes2.set_xlabel("X data")
+my_axes2.set_ylabel("Y data")
+
+# Bir yüzeye iki grafik çizdirmek
+(my_fig, my_axe) = plt.subplots()
+my_axe.plot(numpy_age, numpy_weight, "y--")
+#html color codes'dan renk, alpha = saydamlık, linewidth = kalınlık ayarladık, linestyle = stil, marker = data points.
+my_axe.plot(numpy_weight, numpy_age, color = "#B21DCD", alpha = 0.2, linewidth = 2, linestyle = "-.", marker = "o", markersize = 10)
+
+#histogram için plt.hist
+plt.hist(np.random.randint(1,100,70))
+
+#figür kaydetme için
+new_fig = plt.hist(np.random.randint(1,100,70))
+new_fig.savefig("myfig.png", dpi=200) #dpi = çözünürlük
+
+plt.show() #10 grafik de olsa en alta 1 tane bundan koysan hepsini gösterir, çıktı almak istemiyorsan sadece bunu sil.
+"""
+
+# --------------------------------------------------DATA SCIENCE--------------------------------------------------------
+
+"""
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+
+df=pd.read_csv('C:/Users/ASUS/Desktop/python/netflix_titles_nov_2019.csv.zip')
+print(df)
+
+def data_inv(df):
+    print('netflix movies and shows: ',df.shape[0])
+    print('dataset variables: ',df.shape[1])
+    print('-'*10)
+    print('dateset columns: \n')
+    print(df.columns)
+    print('-'*10)
+    print('data-type of each column: \n')
+    print(df.dtypes)
+    print('-'*10)
+    print('missing rows in each column: \n')
+    c=df.isnull().sum()
+    print(c[c>0])
+data_inv(df)
+
+dups=df.duplicated(['title','country','type','release_year'])
+print(df[dups])
+df=df.drop_duplicates(['title','country','type','release_year'])
+df=df.drop('show_id',axis=1)
+
+df['cast']=df['cast'].replace(np.nan,'Unknown')
+def cast_counter(cast):
+    if cast=='Unknown':
+        return 0
+    else:
+        lst=cast.split(', ')
+        length=len(lst)
+        return length
+df['number_of_cast']=df['cast'].apply(cast_counter)
+df['cast']=df['cast'].replace('Unknown',np.nan)
+print(df)
+
+df=df.reset_index()
+
+df['rating']=df['rating'].fillna(df['rating'].mode()[0])
+df['date_added']=df['date_added'].fillna('January 1, {}'.format(str(df['release_year'].mode()[0])))
+
+# Daha verimli ve okunabilir versiyon
+anime_mask = (df['country'].isna()) & (df['listed_in'].str.contains('Anime|anime', na=False))
+df.loc[anime_mask, 'country'] = 'Japan'
+
+import re
+months={
+    'January':1,
+    'February':2,
+    'March':3,
+    'April':4,
+    'May':5,
+    'June':6,
+    'July':7,
+    'August':8,
+    'September':9,
+    'October':10,
+    'November':11,
+    'December':12
+}
+date_lst=[]
+for i in df['date_added'].values:
+    str1=re.findall('([a-zA-Z]+)\s[0-9]+\,\s[0-9]+',i)
+    str2=re.findall('[a-zA-Z]+\s([0-9]+)\,\s[0-9]+',i)
+    str3=re.findall('[a-zA-Z]+\s[0-9]+\,\s([0-9]+)',i)
+    date='{}-{}-{}'.format(str3[0],months[str1[0]],str2[0])
+    date_lst.append(date)
+
+df['date_added_cleaned']=date_lst
+df=df.drop('date_added',axis=1)
+df['date_added_cleaned']=df['date_added_cleaned'].astype('datetime64[ns]')
+
+for i in df.index:
+    if df.loc[i,'rating']=='UR':
+        df.loc[i,'rating']='NR'
+
+plt.figure(figsize=(8,6))
+df['rating'].value_counts(normalize=True).plot.bar()
+plt.title('Distribution of rating categories')
+plt.xlabel('rating')
+plt.ylabel('relative frequency')
+
+
+plt.figure(figsize=(10,8))
+sns.countplot(x='rating',hue='type',data=df)
+plt.title('comparing frequency between type and rating')
+
+
+print(df['country'].value_counts().sort_values(ascending=False))
+
+top_productive_countries=df[(df['country']=='United States')|(df['country']=='India')|(df['country']=='United Kingdom')|(df['country']=='Japan')|
+                             (df['country']=='Canada')|(df['country']=='Spain')]
+plt.figure(figsize=(10,8))
+sns.countplot(x='country',hue='type',data=top_productive_countries)
+plt.title('comparing between the types that the top countries produce')
+
+
+for i in top_productive_countries['country'].unique():
+    print(i)
+    print(top_productive_countries[top_productive_countries['country']==i]['rating'].value_counts(normalize=True)*100)
+    print('-'*10)
+
+df['year_added']=df['date_added_cleaned'].dt.year
+print(df['type'].value_counts(normalize=True))
+
+print(df.groupby('year_added')['type'].value_counts(normalize=True)*100)
+
+dups=df.duplicated(['title'])
+print(df[dups]['title'])
+for i in df[dups]['title'].values:
+    print(df[df['title']==i][['title','type','release_year','country']])
+    print('-'*40)
+
+plt.figure(figsize=(10,8))
+df['year_added'].value_counts().plot.bar()
+plt.title('distribution of year-added')
+plt.ylabel('relative frequency')
+plt.xlabel('year_added')
+#plt.show()
+
+counts=0
+for i,j in zip(df['release_year'].values,df['year_added'].values):
+    if i!=j:
+        counts+=1
+print('number of contents that its release year differ from the year added to netflix are ',str(counts))
+"""
+
+# --------------------------------------------------Internet/Threading--------------------------------------------------
+
+"""
+def get_crypto_data():
+    response = requests.get("https://raw.githubusercontent.com/atilsamancioglu/K21-JSONDataSet/master/crypto.json")
+    if response.status_code == 200: #200 olması hata almadığımız anlamına gelir, 404 hata mesela, ya da 300 aktarmalı ulaşım demek.
+        return response.json()
+
+crypto_response = get_crypto_data()
+user_input = input("Enter your crypto currency: ")
+
+for crypto in crypto_response:
+    if  crypto["currency"] == user_input :
+        print(crypto["price"])
+        break
+
+urls = ['https://postman-echo.com/delay/3'] * 10
+#burada senkron yaptık ve işlemimiz 40 sn sürdü
+def get_data_sync(urls):
+    st = time.time()
+    json_array = []
+    for url in urls:
+        json_array.append(requests.get(url).json())
+    et = time.time()
+    elapsed_time = et - st
+    print('Execution time:', elapsed_time, 'seconds')
+    return json_array
+
+
+#Asenkron yapı kullandık ama beklemeli şekilde, 34 sn sürdü
+async def get_data_async_but_as_wrapper(urls):
+    st = time.time()
+    json_array = []
+    async with aiohttp.ClientSession() as session:
+        for url in urls:
+            async with session.get(url) as resp:
+                json_array.append(await resp.json())
+    et = time.time()
+    elapsed_time = et - st
+    print('Execution time:', elapsed_time, 'seconds')
+    return json_array
+asyncio.run(get_data_async_but_as_wrapper(urls))
+
+
+#Asenkron yapıyı uygun şekilde kullandık 4sn civarı sürdü
+async def get_data(session, url, json_array):
+    async with session.get(url) as resp:
+        json_array.append(await resp.json())
+
+
+async def get_data_async_concurrently(urls):
+    st = time.time()
+    json_array = []
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        for url in urls:
+            tasks.append(asyncio.ensure_future(get_data(session, url, json_array)))
+        await asyncio.gather(*tasks)
+    et = time.time()
+    elapsed_time = et - st
+    print('Execution time:', elapsed_time, 'seconds')
+    return json_array
+asyncio.run(get_data_async_concurrently(urls))
+
+
+
+#burada thread'lere böldük ve işlem 4 sn sürdü
+class ThreadingDownloader(threading.Thread):
+    json_array = []
+    def __init__(self, url):
+        super().__init__()
+        self.url = url
+
+    def run(self):
+        response = requests.get(self.url)
+        self.json_array.append(response.json())
+        return self.json_array
+
+def get_data_threading(urls):
+    st = time.time()
+    threads = []
+    for url in urls:
+        t = ThreadingDownloader(url)
+        t.start()
+        threads.append(t)
+
+    for t in threads:
+        t.join()
+        print(t)
+    et = time.time()
+    elapsed_time = et - st
+    print('Execution time:', elapsed_time, 'seconds')
+
+
+#GET
+user_input = input("enter id: ")
+get_url = f"https://jsonplaceholder.typicode.com/todos/{user_input}"
+
+get_response = requests.get(get_url)
+print(get_response.json())
+
+#POST
+to_do_item = {"userId": 2, "title": "my to do", "completed": False}
+post_url = "https://jsonplaceholder.typicode.com/todos"
+#optional header - it works without header as well. to test how it works, you can do the following:
+headers = {"Content-Type": "application/json"}
+#post_response = requests.post(post_url, json=to_do_item, headers=headers)
+
+#if you need to convert dict into json to send as data
+post_response = requests.post(post_url, data=json.dumps(to_do_item), headers=headers)
+print(post_response.json())
+
+#get_response = requests.get(get_url)
+#print(get_response.json())
+
+#PUT (komple değişim)
+to_do_item_15 = {"userId": 2, "title": "put title", "completed": False}
+#put_response = requests.put(get_url, json=to_do_item_15)
+#print(put_response.json())
+
+#PATCH (bir parametrenin değişimi)
+to_do_item_patch_15 = {"title": "Patch Test"}
+#patch_response = requests.patch(get_url,json=to_do_item_patch_15)
+#print(patch_response.json())
+
+#DELETE
+delete_response = requests.delete(get_url)
+print(delete_response.json())
+print(delete_response.status_code)
+"""
+
+# --------------------------------------------------Subdomain Lister----------------------------------------------------
+"""
+def make_request(url):
+    try:
+        return requests.get(url)
+    except requests.exceptions.ConnectionError:
+        pass
+
+target_input = "google.com"
+
+with open("subdomainlist.txt", "r") as subdomain_list:
+    for word in subdomain_list:
+        word = word.strip()
+        url = "http://" + word + "." + target_input
+        response = make_request(url)
+        if response:
+            print("Found subdomain ---> " + url)
+"""
+#---------------------------------------------------HTML VSCODE---------------------------------------------------------
+"""
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> HTML101 </title>
+</head>
+<body>
+    <!-- Basics -->
+    <h1>heading 1</h1>
+    <BR>
+    <h2>heading 2</h2>
+    <h3>heading 3</h3>
+    <h4>heading 4</h4>
+    <h5>heading 5</h5>
+    <h6>heading 6</h6>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error modi, excepturi, officia nemo sapiente unde quae iusto atque cumque iure laudantium quo maiores eveniet quasi eligendi optio explicabo dignissimos facere?</p>
+
+    <!-- unorderd list-->
+    <ul>
+        <li> unordered list 1 </li>
+        <li> unordered list 2 </li>
+        <li> unordered list 3 </li>
+        <li> unordered list 4 </li>
+    </ul>
+    <br><br>
+    <!-- ordered list-->
+    <ol>
+        <li> ordered list 1</li>
+        <li> ordered list 2</li>
+        <li> ordered list 3</li>
+        <li> ordered list 4</li>
+    </ol>
+    <br>   
+    <!-- mixed list -->
+    <h2> python course </h2>
+    <ol>
+        <li>variables</li>
+            <ul>
+                <li>integer</li>
+                <li>float</li>
+            </ul>
+        <li>collections</li>
+            <ul>
+                <li>dictionaries</li>
+                <li>set</li>
+                <li>array</li>
+                <li>tupple</li>
+            </ul>
+        <li>loops</li>
+            <ul>
+                <li>for loop</li>
+                <li>while loop</li>
+            </ul>
+            
+    </ol>
+
+    <!-- Div and Span-->
+    <div  style="color: brown;"> <!-- div in yanına yaptıkların içindeki hepsine uygulanır-->
+        <p>paragraph 1</p>
+        <p>paragraph 2</p>
+        <p>paragraph 3</p>
+    </div>
+    <br>
+    <div>
+        <ul>
+            <li>list 1</li>
+            <span style="color: seagreen;"> <!-- span kendinden aşağıdakilere etkieder. Yani div'in alt elemanı gibi-->
+                <li>list 2</li>
+                <li>list 3</li>
+            </span>
+        </ul>
+    </div>
+
+        <br><br>
+        <!--links-->
+        <a href="https://www.linkedin.com/in/eminenur-toprak-86b693226"><h1>Emoşumun Linkedin Hesabı</h1></a>
+        <a href="https://www.linkedin.com/in/eminenur-toprak-86b693226">Emoşumun Linkedin Hesabı</a>
+        
+        <br><br>
+
+        <!--Images-->
+        <h1 style="color: palevioletred;">EMOŞUUMMM</h1>
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQHk4LlALykpWg/profile-displayphoto-scale_200_200/B4DZhhPSEPHsAc-/0/1753978054199?e=2147483647&v=beta&t=NKPNKdg5GwLHjwoNmOeLFnyppC9OiYObz0m7uIsbBgE" alt="emoşuummmm">
+        
+        <br><br>
+
+        <!--tables and forms-->
+        <table border=1>
+            <thead>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Department</th>
+                <th>Age</th>
+            </thead>
+
+            <tr>
+                <td>Quaresma</td>
+                <td>100</td>
+                <td>Retired</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>Orkun Kökçü</td>
+                <td>100</td>
+                <td>Football Player</td>
+                <td>24</td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <!--forms-->
+        <form action="https://www.linkedin.com/in/eminenur-toprak-86b693226">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <br>
+            <label for="Salary">Salary:</label>
+            <input type="text" name="Salary" id="Salary">
+            <br>
+            <input type="submit">
+        </form>
+
+        <bR><br>
+
+        <form action="https://www.linkedin.com/in/eminenur-toprak-86b693226">
+            <label for="e-mail">E-mail:</label>
+            <input type="email" name="e-mail" id="e-mail" placeholder="Enter your E-mail">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter your Password">
+            <br>
+            <input type="submit" value="Login">
+        </form>
+
+        <bR><br>
+
+        <form action="https://www.linkedin.com/in/eminenur-toprak-86b693226">
+            <p>Football or Basketball</p>
+
+            <label for="Football">Football:</label>
+            <input type="radio" id="Football" name="sport" value="Football">
+            
+            <br>
+            
+            <label for="Basketball">Basketball:</label>
+            <input type="radio" id="Basketball" name="sport" value="Basketball">
+            <br>
+            <input type="submit" value="Choose">
+        </form>
+        
+        <br><br>
+
+        <form action="https://www.linkedin.com/in/eminenur-toprak-86b693226">
+            <p>Rate your Girlfriend</p>
+
+            <select name="raing" id="raing">
+                <option>5</option>
+                <option>4</option>
+                <option>3</option>
+                <option>2</option>
+                <option>1</option>
+            </select>
+            
+            <br>
+            <input type="submit" value="Choose">
+        </form>
+</body>
+</html>
+"""
+#---------------------------------------------------CSS VSCODE----------------------------------------------------------
+"""
+#---------------------------------------------------HTML PART
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="projectstyle.css"> <!--burada css dosyasıyla bağlantı sağladık-->
+    <title>CSS Basics</title>
+</head>
+<body>
+
+    <h2>Heading 2 </h2>
+    <h3>Heading 3</h3>
+    <div class="firstdiv">
+        <p>Lorem ipsum <span>dolor sit amet</span> consectetur adipisicing elit. Blanditiis autem distinctio tempore corporis, voluptatibus quia modi rem sequi optio, amet similique eligendi molestias perspiciatis a, fugiat ratione consequatur quod? Saepe.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat asperiores dicta non, soluta iste laudantium labore vero quo deserunt explicabo enim itaque ab facilis dolores facere, distinctio mollitia rem ad?</p>
+        <p><span>Lorem ipsum</span> dolor sit amet consectetur adipisicing elit. Quaerat asperiores dicta non, soluta iste laudantium labore vero quo deserunt explicabo enim itaque ab facilis dolores facere, distinctio mollitia rem ad?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat asperiores dicta non, soluta iste laudantium labore vero quo deserunt explicabo enim itaque ab facilis dolores facere, distinctio mollitia rem ad?</p>
+    </div>
+
+    <div>
+        <h1>Heading 1</h1>
+        <h4>Heading 4</h4>
+    </div>
+
+    <p id="myparagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde libero expedita distinctio pariatur, officia numquam, mollitia culpa quas repudiandae architecto placeat earum temporibus perferendis provident, nesciunt illo totam doloremque sit!</p>
+
+    <div class="seconddiv">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde libero expedita distinctio pariatur, officia numquam, mollitia culpa quas repudiandae architecto placeat earum temporibus perferendis provident, nesciunt illo totam doloremque sit!</p>
+        <p id="secondparagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde libero expedita distinctio pariatur, officia numquam, mollitia culpa quas repudiandae architecto placeat earum temporibus perferendis provident, nesciunt illo totam doloremque sit!</p>
+    </div>
+
+    <br><br>
+
+
+
+
+</body>
+</html>
+
+
+
+#---------------------------------------------------CSS PART
+h2{
+    color: brown;
+    background-color: bisque;
+    text-align: center;
+    font-family: 'Times New Roman';
+    border: 5px solid purple;
+    padding: 10px; /* padding border'ın içindeki pozisyonu belirler */
+}
+
+h3{
+    color:aqua;
+    border: 5px solid black;
+    margin: 10px; /* margin tüm sayfadaki pozisyonu belirler */
+}
+
+p{
+    color:blue;
+}
+
+.firstdiv{
+    background-color:black;
+}
+
+#myparagraph{
+    color:blueviolet;
+    font-size: large;
+}
+
+div{
+    background-color:chartreuse;
+}
+
+h1{
+    color:white;
+    text-align: center;
+
+}
+
+h4{
+    color:aliceblue;
+}
+
+#secondparagraph{
+    color:beige;
+    font-size: 10px;
+}
+
+.seconddiv{
+    background-color:crimson;
+}
+
+body{
+    background-color: beige;
+    font-family:'Segoe UI';
+}
+"""
